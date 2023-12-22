@@ -3,5 +3,5 @@
   "editor.formatOnSave": true,
   "editor.fontWeight": "normal",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["Redefense", "Swal", "sweetalert"]
+  "cSpell.words": ["MERN", "Redefense", "Swal", "sweetalert"]
 }

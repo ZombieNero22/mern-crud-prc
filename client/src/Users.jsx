@@ -43,64 +43,69 @@ function Users() {
 
   return (
     <div className="d-flex vh-100 bg-dark justify-content-center align-items-center">
-      <div className="w-50 bg-white rounded p-4">
+      <div className="w-50 mw-50 bg-white rounded p-4">
         <Link to="/create" className="btn btn-success  mb-3">
           Add +
         </Link>
-        <table className="table">
-          <caption>List of users</caption>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Age</th>
-              <th>Gender</th>
-              <th>Status</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user) => {
-              return (
-                <tr>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td style={{ fontWeight: 500 }} className="text-primary">
-                    {user.age}
-                  </td>
-                  <td>{user.gender}</td>
-                  <td
-                    style={{
-                      fontWeight: user.status === "Redefense" ? 500 : 500
-                    }}
-                    className={`${
-                      user.status === "Redefense"
-                        ? "text-danger"
-                        : "text-success"
-                    }`}
-                  >
-                    {user.status}
-                  </td>
+        <div className="table-responsive">
+          <table className="table  table-hover">
+            <caption>List of users</caption>
+            <thead className="table-dark">
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => {
+                return (
+                  <tr key={user._id}>
+                    <td className="text-truncate">{user.name}</td>
+                    <td className="text-truncate">{user.email}</td>
+                    <td
+                      style={{ fontWeight: 500 }}
+                      className="text-primary text-truncate"
+                    >
+                      {user.age}
+                    </td>
+                    <td className="text-truncate">{user.gender}</td>
+                    <td
+                      style={{
+                        fontWeight: user.status === "Redefense" ? 500 : 500
+                      }}
+                      className={`${
+                        user.status === "Redefense"
+                          ? "text-danger"
+                          : "text-success"
+                      } text-truncate`}
+                    >
+                      {user.status}
+                    </td>
 
-                  <td className="d-grid gap-2 d-md-flex">
-                    <Link
-                      to={`/update/${user._id}`}
-                      className="btn btn-primary"
-                    >
-                      Update
-                    </Link>
-                    <button
-                      className="btn btn-outline-danger"
-                      onClick={(e) => HandleDelete(user._id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                    <td className="d-grid gap-2 d-md-flex">
+                      <Link
+                        to={`/update/${user._id}`}
+                        className="btn btn-primary"
+                      >
+                        Update
+                      </Link>
+                      <button
+                        className="btn btn-outline-danger"
+                        onClick={(e) => HandleDelete(user._id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
